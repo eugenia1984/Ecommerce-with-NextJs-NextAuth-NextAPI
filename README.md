@@ -2,29 +2,36 @@
 
 ---
 
-## Full Authentication & Authorization using NextAuth 
+## Full Authentication & Authorization using NextAuth
 
-### Create nextjs project
+## Technology
+
+- Nextjs (version 13)
+
+- Bootstrap-Material-Design
+
+---
+
+## 1 - Create nextjs project
 
 ```BASH
 mkdir nextcom
 cd nextcom
-npx create-next-app@latest
-// use . to create project inside nextcom // pick typescript
+npx create-next-app@13
+
 // run project using
 npm run dev
 ```
 
 ---
 
-
-### Using bootstrap material css
+## 2 - Using bootstrap material css
 
 - Remove all css from globals.css and page.module.css
 
 - `app/layout.js`:
 
-```JSX  
+```JSX
 import "./globals.css";
 
 export const metadata = {
@@ -57,18 +64,19 @@ export default function Home() {
 
 - Install bootstrap-material
 
- ```BASH
+```BASH
 npm i bootstrap-material-design
 ```
 
+- `layout.js`:
+
 ```JSX
-// import in layout
-import "bootstrap-material-design/dist/css/bootstrap-material- design.min.css";
+import "bootstrap-material-design/dist/css/bootstrap-material-design.min.css";
 ```
 
 - Try some bootstrap-material class names
 
--   `app/page.js`:
+- `app/page.js`:
 
 ```JSX
 export default function Home() {
@@ -86,10 +94,10 @@ export default function Home() {
 
 ---
 
-### Create navigation
+## 3- Create navigation
 
 - `components/nav/TopNav.js`:
-  
+
 ```JSX
 import Link from "next/link";
 
@@ -114,7 +122,6 @@ export default function TopNav() {
 
 - import in layout
 
-  
 ```JSX
 import TopNav from "@/components/nav/TopNav";
 // ...
@@ -136,7 +143,6 @@ return (
 
 - app/api/route.js``:
 
-    
 ```JSX
 import { NextResponse } from "next/server";
 
@@ -162,7 +168,7 @@ Signup to mongo atlas to get a connection string [A tutorial link](https://kalor
 Use custom config file along with next.config.js to use env variables so that it works perfectly once deployed to vercel
 
 - `config.js`:
-  
+
 ```JSX
 const DB_URI =
   process.env.NODE_ENV === "production"
@@ -367,7 +373,7 @@ export default function Register() {
 );
 }
 ```
-     
+
 ---
 
 ### Regisger API request
@@ -415,7 +421,7 @@ import { Toaster } from "react-hot-toast";
 
 - `app/register/page`:
 
-```JSX  
+```JSX
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
@@ -460,7 +466,7 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 
 - `app/login/page`:
 
-```JSX  
+```JSX
 "use client";
 
 import { set } from "mongoose";
@@ -519,7 +525,7 @@ return (
 
 ### Email and password login with next auth
 
- ```BASH
+```BASH
 npm i net-auth
 ```
 
@@ -556,13 +562,12 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 
 ### NextAuth configuration
 
- - `config.js`
+- `config.js`
 
 ```JSX
 // name "NEXTAUTH_SECRET" is important, dont rename it
 const NEXTAUTH_SECRET = "YOUR_SECRET";
 ```
-
 
 - `utils/authOptions.js`:
 
@@ -706,6 +711,7 @@ export default function TopNav() {
 ---
 
 ### Loading page
+
 This is default loading page in nextjsReactNextEcomFree.md
 
 - `app/loading.js`:
@@ -724,7 +730,7 @@ export default function Loading() {
 // TopNav
 return (
   <nav className="nav shadow p-2 justify-content-between mb-3">
-    <Link className="nav-link" href="/">  
+    <Link className="nav-link" href="/">
       🛒   NEXTCOM
     </Link>
     {status === "authenticated" ? (
@@ -752,7 +758,7 @@ return (
 
 - `app/not-found.js`:
 
-```JSX  
+```JSX
 export default function NotFound() {
   return (
     <div className="d-flex justify-content-center align-items-center vh- 100 text-danger">
@@ -785,14 +791,13 @@ export default function UserDashboard() {
 // this page is accessible to anyone
 ```
 
-
 ---
 
 #### Protecting pages
 
 - `Protect dashboard pages` - `middleware.js`:
 
-```JSX  
+```JSX
 export { default } from "next-auth/middleware";
 export const config = { matcher: ["/dashboard/:path*"] };
 ```
@@ -800,7 +805,6 @@ export const config = { matcher: ["/dashboard/:path*"] };
 ---
 
 ### Redirect back to intended page
-
 
 - `login`:
 

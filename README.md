@@ -92,21 +92,24 @@ export default function Home() {
   
 ```JSX
 import Link from "next/link";
+
 export default function TopNav() {
-return (
-<nav className="nav shadow p-2 justify-content-between mb-3"> <Link className="nav-link" href="/">
-🛒   NEXTCOM
-</Link>
-<div className="d-flex">
-<Link className="nav-link" href="/login">           Login
-</Link>
-<Link className="nav-link" href="/register">           Register
-</Link>
-</div>
-</nav>
+  return (
+    <nav className="nav shadow p-2 justify-content-between mb-3">
+      <Link className="nav-link" href="/">
+        🛒   NEXTCOM
+        </Link>
+        <div className="d-flex">
+          <Link className="nav-link" href="/login">
+            Login
+          </Link>
+          <Link className="nav-link" href="/register">
+            Register
+          </Link>
+    </div>
+    </nav>
   );
 }
-  
 ```
 
 - import in layout
@@ -115,11 +118,14 @@ return (
 ```JSX
 import TopNav from "@/components/nav/TopNav";
 // ...
-export default function RootLayout({ children }) { return (
-<html lang="en"> <body>
-<TopNav />
+
+export default function RootLayout({ children }) {
+return (
+  <html lang="en"> <body>
+    <TopNav />
         {children}
-</body> </html>
+    </body>
+    </html>
   );
 }
 ```
@@ -133,8 +139,12 @@ export default function RootLayout({ children }) { return (
     
 ```JSX
 import { NextResponse } from "next/server";
+
 export async function GET(req) {
-return NextResponse.json({ time: new Date().toLocaleString() }); }
+  return NextResponse.json({
+    time: new Date().toLocaleString()
+  });
+}
 // try visiting
 // http://localhost:3000/apiReactNextEcomFree.md
 ```
@@ -168,10 +178,12 @@ module.exports = {
 ```JSX
 const config = require("./config");
 /** @type {import('next').NextConfig} */
+
 const nextConfig = {
-env: {
-DB_URI: config.DB_URI,   },
+  env: {
+  DB_URI: config.DB_URI,   },
 };
+
 module.exports = nextConfig;
 ```
 
@@ -188,8 +200,9 @@ npm i mongoose mongoose-unique-validator
 ```JSX
 import mongoose from "mongoose";
 
-const dbConnect = async () => { if (mongoose.connection.readyState >= 1) {
-return;
+const dbConnect = async () => {
+  if (mongoose.connection.readyState >= 1) {
+    return;
   }
   mongoose.connect(process.env.DB_URI);
 };

@@ -16,6 +16,14 @@
 
 - Bycrypt
 
+- React-Hot-Toast
+
+---
+
+## API
+
+- `/api/register` -> to create a **user** with: name, email, password
+
 ---
 
 ## 1 - Create nextjs project
@@ -316,12 +324,13 @@ export async function POST(req) {
 
 ---
 
-### 10- Register form
+### 10 - Register form
 
 - `app/register/page.js`:
 
 ```JSX
 "use client";
+
 import { set } from "mongoose";
 import { useState } from "react";
 import { FormEvent } from "react";
@@ -387,7 +396,7 @@ export default function Register() {
 
 ---
 
-### Regisger API request
+### 11 - Regisger API request
 
 - `config.js`
 
@@ -424,8 +433,8 @@ npm i react-hot-toast
 import { Toaster } from "react-hot-toast";
 // ...
 <body>
-<TopNav />
-<Toaster />
+  <TopNav />
+  <Toaster />
   {children}
 </body>;
 ```
@@ -473,7 +482,7 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 
 ---
 
-### Login page
+### 12 - Login page
 
 - `app/login/page`:
 

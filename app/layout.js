@@ -4,6 +4,8 @@ import "bootstrap-material-design/dist/css/bootstrap-material-design.min.css";
 
 import TopNav from "@/components/nav/TopNav";
 
+import { Toaster } from "react-hot-toast";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -16,6 +18,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <TopNav />
+        <Toaster />
         {children}
       </body>
     </html>

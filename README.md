@@ -8,7 +8,13 @@
 
 - Nextjs (version 13)
 
+- React and React-DOM
+
 - Bootstrap-Material-Design
+
+- MongoAtlas, Mongoose and mongoose-unique-validator
+
+- Bycrypt
 
 ---
 
@@ -170,10 +176,12 @@ Use custom config file along with next.config.js to use env variables so that it
 
 - `config.js`:
 
+-> Replace `<password>` with the password for the user
+
 ```JSX
 const DB_URI =
   process.env.NODE_ENV === "production"
-    ? "mongodb+srv://ryan:xxx@nextecom.xxx.mongodb.net/? retryWrites=true&w=majority"
+    ? "mongodb+srv://<password>? retryWrites=true&w=majority"
     : "mongodb://localhost:27017/nextecom";
 module.exports = {
   DB_URI,
@@ -270,7 +278,7 @@ export default mongoose.models.User || mongoose.model("User", userSchema);
 
 ---
 
-### Register API routeReactNextEcomFree.md
+### 9 - Register API route
 
 ```BASH
 npm i bcrypt
@@ -308,7 +316,7 @@ export async function POST(req) {
 
 ---
 
-### Register form
+### 10- Register form
 
 - `app/register/page.js`:
 

@@ -128,9 +128,10 @@ import TopNav from "@/components/nav/TopNav";
 
 export default function RootLayout({ children }) {
 return (
-  <html lang="en"> <body>
-    <TopNav />
-        {children}
+  <html lang="en">
+    <body>
+      <TopNav />
+      {children}
     </body>
     </html>
   );
@@ -139,7 +140,7 @@ return (
 
 ---
 
-### Nextjs API routes
+### 4- Nextjs API routes
 
 - app/api/route.js``:
 
@@ -151,19 +152,19 @@ export async function GET(req) {
     time: new Date().toLocaleString()
   });
 }
-// try visiting
-// http://localhost:3000/apiReactNextEcomFree.md
 ```
+
+- Try visiting: **http://localhost:3000/api**
 
 ---
 
-### Signup to mongodb
+### 5 - Signup to mongodb
 
 Signup to mongo atlas to get a connection string [A tutorial link](https://kaloraat.com/articles/how-to-use-mongodb-atlas)
 
 ---
 
-#### Using ENV variables
+### 6 - Using ENV variables
 
 Use custom config file along with next.config.js to use env variables so that it works perfectly once deployed to vercel
 
@@ -195,7 +196,7 @@ module.exports = nextConfig;
 
 ---
 
-### Connect to mongondb
+### 7 - Connect to mongondb
 
 ```BASH
 npm i mongoose mongoose-unique-validator
@@ -213,10 +214,12 @@ const dbConnect = async () => {
   mongoose.connect(process.env.DB_URI);
 };
 
-export default dbConnect;ReactNextEcomFree.md
+export default dbConnect;
 ```
 
-### Create user model
+---
+
+### 8 - Create user model
 
 - `models/user`:
 

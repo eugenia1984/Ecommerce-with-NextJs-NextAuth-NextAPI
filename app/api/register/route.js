@@ -17,7 +17,7 @@ export async function POST(req) {
       password: await bcrypt.hash(password, 10),
     }).save();
 
-    consol.info("user created: ", name, email);
+    console.info("user created: ", name, email);
     return NextResponse.json({ success: "Registered Successfully" });
   } catch (err) {
     console.log(err);

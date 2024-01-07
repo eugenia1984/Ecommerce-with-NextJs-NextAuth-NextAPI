@@ -18,11 +18,15 @@
 
 - React-Hot-Toast
 
+- Next-Auth
+
 ---
 
 ## API
 
 - `/api/register` -> to create a **user** with: name, email, password
+
+---
 
 ---
 
@@ -396,7 +400,7 @@ export default function Register() {
 
 ---
 
-### 11 - Regisger API request
+### 11 - Register API request
 
 - `config.js`
 
@@ -495,11 +499,13 @@ import { FormEvent } from "react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
-export default function Register() {
-  const [email, setEmail] = useState("ryan@gmail.com");
-  const [password, setPassword] = useState("rrrrrr");
+export default function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+
   const router = useRouter();
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     //
@@ -543,10 +549,10 @@ return (
 
 ---
 
-### Email and password login with next auth
+### 13 - Email and password login with next auth
 
 ```BASH
-npm i net-auth
+npm i next-auth
 ```
 
 - `app/login/page`:
@@ -580,7 +586,7 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 
 ---
 
-### NextAuth configuration
+### 14 - NextAuth configuration
 
 - `config.js`
 

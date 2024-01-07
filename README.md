@@ -18,7 +18,7 @@ npm run dev
 ---
 
 
-### Using bootstrap material cssReactNextEcomFree.md
+### Using bootstrap material css
 
 ```JSX
 // remove all css from globals.css and page.module.css
